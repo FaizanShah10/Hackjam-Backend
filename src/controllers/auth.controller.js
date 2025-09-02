@@ -5,11 +5,11 @@ import { signToken } from "../utils/token.js";
 const setAuthCookie = (res, token) => {
   // You can skip cookies if you only want Bearer tokens on frontend
   res.cookie("token", token, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: false, // set true behind HTTPS
-    maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-  });
+  httpOnly: true,
+  sameSite: "None",
+  secure: true,            // cross-site requires HTTPS
+  maxAge: 1000 * 60 * 60,
+});
 };
 
 // POST /auth/signup
